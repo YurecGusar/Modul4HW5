@@ -5,11 +5,11 @@ namespace Modul4HW5.Models
 {
     public class Client
     {
-        public int ClientId { get; set; }
-        public string FirstName { get; set; }
-        public string SecondName { get; set; }
-        public DateTime? DataOfBirth { get; set; }
-        public DateTime DateOfRegistration { get; set; }
-        public List<Project> Projects { get; set; } = new List<Project>();
+        public virtual int ClientId { get; set; }
+        public virtual string FirstName { get; set; }
+        public virtual string SecondName { get; set; }
+        public virtual DateTime? DataOfBirth { get; set; }
+        public virtual DateTime DateOfRegistration { get; set; }
+        public virtual List<Project> Projects { get; set; } = new List<Project>();
     }
 }

@@ -5,12 +5,12 @@ namespace Modul4HW5.Models
 {
     public class Project
     {
-        public int ProjectId { get; set; }
-        public string Name { get; set; }
-        public decimal Budget { get; set; }
-        public DateTime StartedTime { get; set; }
-        public int ClientId { get; set; }
-        public Client Client { get; set; }
-        public List<EmployeeProject> EmployeeProjects { get; set; } = new List<EmployeeProject>();
+        public virtual int ProjectId { get; set; }
+        public virtual string Name { get; set; }
+        public virtual decimal Budget { get; set; }
+        public virtual DateTime StartedTime { get; set; }
+        public virtual int ClientId { get; set; }
+        public virtual Client Client { get; set; }
+        public virtual List<EmployeeProject> EmployeeProjects { get; set; } = new List<EmployeeProject>();
     }
 }
