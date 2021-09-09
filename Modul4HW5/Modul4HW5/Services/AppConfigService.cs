@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 using System.IO;
 using Modul4HW5.Configs;
 using Newtonsoft.Json;
+using Modul4HW5.Services.Abstractions;
 
 namespace Modul4HW5.Services
 {
-    public class AppConfigService
+    public class AppConfigService : IAppConfigService
     {
         public AppConfigService()
         {

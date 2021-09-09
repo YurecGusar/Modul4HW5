@@ -3,13 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Modul4HW5.Services;
+using Modul4HW5.Services.Abstractions;
 
 namespace Modul4HW5
 {
     public class Starter
     {
-        private AppConfigService _config = new AppConfigService();
+        private IAppConfigService _config;
+
+        public Starter(
+            IAppConfigService config)
+        {
+            _config = config;
+        }
+
         public void Run()
         {
             Console.WriteLine(_config.ConnectionString);
