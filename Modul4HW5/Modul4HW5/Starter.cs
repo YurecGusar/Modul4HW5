@@ -19,7 +19,7 @@ namespace Modul4HW5
 
         public void Run()
         {
-            Console.WriteLine(_config.ConnectionString);
+            Console.WriteLine("Test Sourcetree");
         }
     }
 }
