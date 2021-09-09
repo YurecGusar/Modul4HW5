@@ -71,6 +71,20 @@ namespace Modul4HW5
                     .FirstOrDefault()
                     .FirstName = "Ivan";
                 context.SaveChanges();
+
+                context.Add(newProject);
+                context.SaveChanges();
+                context.Add(newEmploee);
+                context.SaveChanges();
+
+                context.Employees.Remove(context.Employees.FirstOrDefault(x => x.FirstName == "Tatur"));
+                context.SaveChanges();
+
+                var query6 = context
+                    .Employees.Select(x => x.Title)
+                    .ToList()
+                    .Where(x => !x.Name.Contains("a"))
+                    .ToList();
             }
 
             Console.WriteLine("Done");
