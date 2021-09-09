@@ -23,7 +23,7 @@ namespace Modul4HW5
 
         public void Run()
         {
-            var newEmployee = new Project()
+            var newProject = new Project()
             {
                 Name = "TestProject",
                 Budget = 1029384,
@@ -33,6 +33,22 @@ namespace Modul4HW5
                     FirstName = "FirstName",
                     SecondName = "SecondName",
                     DateOfRegistration = DateTime.Now
+                }
+            };
+            var newEmploee = new Employee()
+            {
+                FirstName = "TestFirstName",
+                LastName = "TestLastName",
+                DataOfBirth = new DateTime(1994, 09, 03),
+                HiredData = DateTime.Now,
+                Office = new Office()
+                {
+                    Location = "asdfasf",
+                    Title = "saa"
+                },
+                Title = new Title()
+                {
+                    Name = "TitleName"
                 }
             };
 
@@ -47,9 +63,17 @@ namespace Modul4HW5
                     .Include(x => x.EmployeeProjects)
                     .ToList();
 
-                // 2 query is timespan
-                var query4 = context.Projects.Update(newEmployee);
+                var query2 = context.Employees.Select(t => new { Name = t.FirstName + " " + t.LastName, Experience = (DateTime.Now - t.HiredData).TotalDays / 365 }).ToArray();
+
+                context.Clients
+                    .Include(x => x.Projects)
+                    .Where(x => x.ClientId == 1)
+                    .FirstOrDefault()
+                    .FirstName = "Ivan";
+                context.SaveChanges();
             }
+
+            Console.WriteLine("Done");
         }
     }
 }
